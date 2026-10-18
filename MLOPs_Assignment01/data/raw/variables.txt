@@ -1,0 +1,31 @@
+        name     role         type demographic  \
+0        age  Feature      Integer         Age   
+1        sex  Feature  Categorical         Sex   
+2         cp  Feature  Categorical         NaN   
+3   trestbps  Feature      Integer         NaN   
+4       chol  Feature      Integer         NaN   
+5        fbs  Feature  Categorical         NaN   
+6    restecg  Feature  Categorical         NaN   
+7    thalach  Feature      Integer         NaN   
+8      exang  Feature  Categorical         NaN   
+9    oldpeak  Feature      Integer         NaN   
+10     slope  Feature  Categorical         NaN   
+11        ca  Feature      Integer         NaN   
+12      thal  Feature  Categorical         NaN   
+13       num   Target      Integer         NaN   
+
+                                          description  units missing_values  
+0                                                 NaN  years             no  
+1                                                 NaN    NaN             no  
+2                                                 NaN    NaN             no  
+3   resting blood pressure (on admission to the ho...  mm Hg             no  
+4                                   serum cholestoral  mg/dl             no  
+5                     fasting blood sugar > 120 mg/dl    NaN             no  
+6                                                 NaN    NaN             no  
+7                         maximum heart rate achieved    NaN             no  
+8                             exercise induced angina    NaN             no  
+9   ST depression induced by exercise relative to ...    NaN             no  
+10                                                NaN    NaN             no  
+11  number of major vessels (0-3) colored by flour...    NaN            yes  
+12                                                NaN    NaN            yes  
+13                         diagnosis of heart disease    NaN             no  
