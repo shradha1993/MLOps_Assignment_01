@@ -1,0 +1,12 @@
+# 8️⃣ Health check
+echo "🧪 Testing FastAPI endpoints..."
+SERVICE_URL=$(minikube service mlops-service --url)
+echo "🔗 Service URL: $SERVICE_URL"
+
+# Test prediction endpoint
+curl -X POST "$SERVICE_URL/predict" \
+     -H "Content-Type: application/json" \
+     -d '{"inputs": [[50,1,2,130,225,0,2,110,1,2.0,2,3.0,3.0]]}'
+
+# Test metrics endpoint
+curl "$SERVICE_URL/metrics" | head -n 10
