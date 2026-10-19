@@ -1,15 +1,18 @@
 from pathlib import Path
 
-root = Path(r"C:\Users\shrad\MLOps_Assignment_01\MLOPs_Assignment01")
+root = Path(__file__).resolve().parent
 
 folders = [
     "notebook",
     "data/raw",
     "data/processed",
-    "src",
-    "models",
+    "src/data",
+    "src/features",
+    "src/models",
+    "src/tracking",
+    "src/inference",
     "deployment",
-    "airflow",
+    "test",
     "outputs/predictions",
     "outputs/reports",
 ]

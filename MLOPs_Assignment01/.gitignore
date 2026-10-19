@@ -15,9 +15,6 @@ venv/
 # Jupyter
 .ipynb_checkpoints/
 
-# MLflow
-mlruns/
-model_export/
 
 # OS junk
 .DS_Store
