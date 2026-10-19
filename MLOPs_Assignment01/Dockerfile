@@ -18,4 +18,4 @@ RUN pip install --no-cache-dir fastapi uvicorn prometheus_client
 EXPOSE 5001
 
 # Run FastAPI app
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5001"]
+CMD ["uvicorn", "deployment.fastapi_app:app", "--host", "0.0.0.0", "--port", "5001"]

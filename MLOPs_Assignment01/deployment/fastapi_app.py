@@ -2,7 +2,7 @@
 # 🚀 FastAPI app with Prometheus monitoring
 # ============================================================
 
-from fastapi import FastAPI, Response
+from fastapi import FastAPI, Response, Request
 from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 
 # Create FastAPI instance
@@ -21,14 +21,16 @@ REQUEST_LATENCY = Histogram(
     ["endpoint"]
 )
 
-# Example prediction endpoint
+# Example prediction endpoint (supports POST and GET)
+@app.post("/predict")
 @app.get("/predict")
-def predict():
+async def predict(request: Request = None):
     REQUEST_COUNT.labels(endpoint="/predict").inc()
     with REQUEST_LATENCY.labels(endpoint="/predict").time():
         # Example dummy prediction logic
         result = {"predictions": [1]}
     return result
+
 
 # Prometheus metrics endpoint
 @app.get("/metrics")
