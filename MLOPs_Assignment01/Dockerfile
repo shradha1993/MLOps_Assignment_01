@@ -1,22 +1,21 @@
-FROM python:3.12-slim
+# ============================================================
+# 🚀 Dockerfile for FastAPI + Prometheus monitoring
+# ============================================================
 
+# Use official Python base image
+FROM python:3.9-slim
+
+# Set working directory
 WORKDIR /app
 
-# Install system dependencies required by MLflow + sklearn + scipy + xgboost
-RUN apt-get update && apt-get install -y \
-    libgomp1 \
-    libnss3 \
-    libgfortran5 \
-    libopenblas-dev \
-    libstdc++6 \
-    && rm -rf /var/lib/apt/lists/*
+# Copy project files
+COPY . /app
 
-# Copy model artifacts
-COPY deployment/model_export /app/model_export
+# Install dependencies
+RUN pip install --no-cache-dir fastapi uvicorn prometheus_client
 
-# Install Python dependencies (including MLflow)
-RUN pip install --no-cache-dir -r /app/model_export/requirements.txt
-
+# Expose FastAPI port
 EXPOSE 5001
 
-CMD ["mlflow", "models", "serve", "-m", "/app/model_export", "--host", "0.0.0.0", "--port", "5001", "--env-manager", "local"]
+# Run FastAPI app
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5001"]
